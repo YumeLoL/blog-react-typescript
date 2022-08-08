@@ -5,10 +5,10 @@ import './index.scss'
 
 const Navbar = () => {
   const menu = useMenu()
-  const navigation = useNavigate()
 
+  const navigate = useNavigate()
   const goToRoute = (route: string) => {
-    navigation(route)
+    navigate(route)
   }
 
   return (
