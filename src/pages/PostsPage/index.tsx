@@ -1,13 +1,13 @@
 import React from 'react'
 import Layout from '../../ui/organisms/layout'
 
-const ContactPage = () => {
+const PostsPage = () => {
   return (
     <Layout>
 
-      <div>ContactPage</div>
+      <div>PostsPage</div>
     </Layout>
   )
 }
 
-export default ContactPage
+export default PostsPage

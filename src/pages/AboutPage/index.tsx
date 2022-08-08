@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../ui/organisms/layout'
 
 const AboutPage = () => {
   return (
-    <div>AboutPage</div>
+    <Layout>
+      <div>AboutPage</div>
+    </Layout>
   )
 }
 
