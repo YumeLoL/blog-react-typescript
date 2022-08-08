@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@beam-australia/react-env": "^3.1.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "axios": "^0.27.2",
+    "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
@@ -39,5 +44,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-import-resolver-typescript": "^3.4.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
   }
 }

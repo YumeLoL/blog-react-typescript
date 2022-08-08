@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'SFProBold';
+    src: url(../resources/fonts/SFProDisplay-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: 'SFProSemibold';
+    src: url(../resources/fonts/SFProDisplay-Semibold.ttf);
+  }
+  
+  @font-face {
+    font-family: 'SFProMedium';
+    src: url(../resources/fonts/SFProDisplay-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: 'SFProRegular';
+    src: url(../resources/fonts/SFProDisplay-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: 'SFProLight';
+    src: url(../resources/fonts/SFProDisplay-Light.ttf);
+  }
+  
+  // Typography
+  @mixin SFProBold {
+    font-family: 'SFProBold';
+  }
+  
+  @mixin SFProSemibold {
+    font-family: 'SFProSemibold';
+  }
+  
+  @mixin SFProMedium {
+    font-family: 'SFProMedium';
+  }
+  
+  @mixin SFProRegular {
+    font-family: 'SFProRegular';
+  }
+  
+  @mixin SFProLight {
+    font-family: 'SFProLight';
+  }
