@@ -1,25 +1,19 @@
 import React from 'react'
-import Button from '../../atoms/Button'
 import './index.scss'
 
-const Hero = () => {
+
+interface Hero {
+  img: string;
+  text: string;
+}
+
+const Hero: React.FC<Hero>= ({img, text}) => {
   return (
     <div className="hero">
-      <div className="hero__content">
-        <h1 className="hero__title">Our Services</h1>
-        <h2 className="hero__subtitle">
-          We offer the best legal services for all customers. We offer the best
-          legal services for all customers.
-        </h2>
+      <img className="hero__img" src={img} alt="img" />
 
-        <Button
-          className="btn-round"
-          onClick={() => {
-            alert('Click me')
-          }}
-        >
-          Contact Us
-        </Button>
+      <div className="hero__title">
+        <h1>{text}</h1>
       </div>
     </div>
   )

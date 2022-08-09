@@ -3,56 +3,30 @@
 
 .hero {
   position: relative;
+  top: -350px;
+  left: 0;
   width: 100vw;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
+  overflow: hidden;
+  
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -230px;
-    left: 0;
+  &__img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #95aa6333, #5a966e2c),
-      url(../../../resources/images/hero1.jpg) no-repeat center center/cover;
-  }
-
-  &__content {
-    position: relative;
-    width: 50%;
-    padding-top: 100px;
   }
 
   &__title {
-    @include SFProBold;
-    color: $textPrimary;
-    font-size: rem(40px);
-    margin: 40px 0;
-  }
+    position: relative;
+    top: -155px;
+    background-color: $primaryBlue;
+    opacity: 0.8;
+    min-height: 150px;
+    width: auto;
+    padding: 0 100px;
 
-  &__subtitle {
-    @include SFProUltralightItalic;
-    color: $textPrimary;
-    font-size: rem(30px);
-    margin: 40px 0;
-    letter-spacing: 2px;
-  }
-}
-
-.btn-round {
-  border: 3px solid $primaryGold;
-  border-radius: 100px;
-  color: $primaryGold;
-  padding: 15px 25px;
-  transition: background 0.4s ease-out;
-  background: transparent;
-
-  &:hover {
-    background: $primaryGold;
-    color: $textWhite;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    h1 {
+      display: inline-block;
+      @include SFProBold;
+      color: $textWhite;
+      font-size: rem(60px);
+    }
   }
 }

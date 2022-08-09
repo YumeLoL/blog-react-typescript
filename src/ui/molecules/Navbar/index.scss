@@ -5,7 +5,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  max-width: 1800px;
+  max-width: 1600px;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px 60px 0px;
@@ -30,15 +30,15 @@
 .menu {
   position: absolute;
   left: 0;
-  top: 70px;
+  top: 65px;
   right: 0;
   z-index: 2;
   text-align: center;
 
   &__item {
     @include SFProRegular;
-    color: $textPrimary;
-    font-size: rem(20px);
+    color: $textWhite;
+    font-size: rem(25px);
     margin-left: 40px;
     margin-right: 40px;
 
@@ -48,7 +48,8 @@
 
     &--active {
       @include SFProRegular;
-      font-size: rem(20px);
+      color: $primaryGold;
+      font-size: rem(25px);
       margin-left: 40px;
       margin-right: 40px;
       border-bottom: 3px solid $primaryGold;

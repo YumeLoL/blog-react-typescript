@@ -12,6 +12,8 @@ const Layout: React.FC<Layout> = ({ children }) => {
     <div className="layout">
       <div className="layout__top">
         <Navbar />
+
+    
         <div>{children}</div>
       </div>
 
