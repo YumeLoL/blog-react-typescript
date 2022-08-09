@@ -4,7 +4,7 @@
 .hero {
   position: relative;
   width: 100vw;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
 
@@ -39,23 +39,20 @@
     margin: 40px 0;
     letter-spacing: 2px;
   }
-
-  
 }
 
 .btn-round {
-    border: 3px solid $primaryGold;
-    border-radius: 100px;
-    color: $primaryGold;
-    padding: 15px 25px;
-    transition: background 0.4s ease-out;
-    background: transparent;
+  border: 3px solid $primaryGold;
+  border-radius: 100px;
+  color: $primaryGold;
+  padding: 15px 25px;
+  transition: background 0.4s ease-out;
+  background: transparent;
 
-
-    &:hover {
-      background: $primaryGold;
-      color: $textWhite;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+  &:hover {
+    background: $primaryGold;
+    color: $textWhite;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
+}

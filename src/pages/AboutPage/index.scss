@@ -1,0 +1,52 @@
+@import '../../styles/helpers.scss', '../../styles/palette.scss',
+  '../../styles/typography.scss';
+
+.intro {
+  position: relative;
+  top: -270px;
+  width: 1400px;
+  height: 100%;
+  padding-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brief {
+  @include SFProUltralightItalic;
+ 
+  width: 80%;
+  font-size: rem(40px);
+  font-weight: bold;
+  padding: 70px 40px;
+  text-align: center;
+
+  &__bord {
+    @include SFProBold;
+    color: $primaryGold;
+    font-size: rem(50px);
+    margin: 0 10px;
+  }
+}
+
+.description {
+  &__title {
+    font-size: rem(30px);
+  }
+
+  &__text {
+    font-size: rem(28px);
+  }
+}
+
+.btn-square{
+    border: 3px solid $primaryGold;
+    color: $primaryGold;
+
+    &:hover {
+        background: $primaryGold;
+        color: $textWhite;
+    }
+}
