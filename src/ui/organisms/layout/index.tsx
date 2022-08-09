@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../molecules/Footer'
 import Navbar from '../../molecules/Navbar'
 import './index.scss'
 
@@ -14,7 +15,7 @@ const Layout: React.FC<Layout> = ({ children }) => {
         <div>{children}</div>
       </div>
 
-      <div>footer</div>
+      <Footer />
     </div>
   )
 }
