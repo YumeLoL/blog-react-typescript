@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../../atoms/Button'
 import './index.scss'
 
 const Hero = () => {
@@ -7,9 +8,18 @@ const Hero = () => {
       <div className="hero__content">
         <h1 className="hero__title">Our Services</h1>
         <h2 className="hero__subtitle">
-          We offer the best legal services for all customers Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia autem tempore harum sed adipisicing elit. Quia autem tempore harum sed
+          We offer the best legal services for all customers. We offer the best
+          legal services for all customers.
         </h2>
-        <button className="hero__button">Contact us</button>
+
+        <Button
+          className="btn-round"
+          onClick={() => {
+            alert('Click me')
+          }}
+        >
+          Contact Us
+        </Button>
       </div>
     </div>
   )

@@ -1,42 +1,61 @@
 @import '../../../styles/helpers.scss', '../../../styles/palette.scss',
   '../../../styles/typography.scss';
 
-.hero{
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -230px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #95aa6333, #5a966e2c),
+      url(../../../resources/images/hero1.jpg) no-repeat center center/cover;
+  }
+
+  &__content {
     position: relative;
-    width: 100vw;
-    height: 70vh;
-    display: flex;
-    justify-content:center;
+    width: 50%;
+    padding-top: 100px;
+  }
 
-    &::before{
-        content: "";
-        position: absolute;
-        top: -230px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, #95aa6333, #5a966e2c), url(../../../resources/images/hero1.jpg) no-repeat center center/cover;
+  &__title {
+    @include SFProBold;
+    color: $textPrimary;
+    font-size: rem(40px);
+    margin: 40px 0;
+  }
 
-    }
+  &__subtitle {
+    @include SFProUltralightItalic;
+    color: $textPrimary;
+    font-size: rem(30px);
+    margin: 40px 0;
+    letter-spacing: 2px;
+  }
 
-    &__content {
-        position: relative;
-        width: 50%;
-        padding-top: 100px
-    }
-
-    &__title{
-        @include SFProUltralight;
-        color: $textWhite;
-        font-size: rem(40px);
-        margin: 40px 0;
-    }
-
-    &__subtitle{
-        @include SFProUltralightItalic;
-        color: $textWhite;
-        font-size: rem(30px);
-        margin: 40px 0;
-        letter-spacing: 2px;
-    }
+  
 }
+
+.btn-round {
+    border: 3px solid $primaryGold;
+    border-radius: 100px;
+    color: $primaryGold;
+    padding: 15px 25px;
+    transition: background 0.4s ease-out;
+    background: transparent;
+
+
+    &:hover {
+      background: $primaryGold;
+      color: $textWhite;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  }

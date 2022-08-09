@@ -1,0 +1,14 @@
+@import '../../../styles/helpers.scss', '../../../styles/palette.scss',
+  '../../../styles/typography.scss';
+
+
+// basic button styles
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: rem(25px);
+  min-width: 150px;
+  cursor: pointer;
+  z-index: 1;
+  margin: 30px 0;
+}
