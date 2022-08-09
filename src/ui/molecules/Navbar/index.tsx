@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="navbar">
         <div className="navbar__logo">
           <a href="/">
-            <img src="resources/images/LOGO.svg" alt="Logo" />
+            <img src={require('../../../resources/logo/navlogo.png')} alt="Logo" />
           </a>
         </div>
 

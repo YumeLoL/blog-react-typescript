@@ -4,10 +4,15 @@
   }
   
   @font-face {
-    font-family: 'SFProSemibold';
-    src: url(../resources/fonts/SFProDisplay-Semibold.ttf);
+    font-family: 'SFProUltralight';
+    src: url(../resources/fonts/SFProDisplay-Ultralight.ttf);
   }
   
+  @font-face {
+    font-family: 'SFProUltralightItalic';
+    src: url(../resources/fonts/SFProDisplay-UltralightItalic.ttf);
+  }
+
   @font-face {
     font-family: 'SFProMedium';
     src: url(../resources/fonts/SFProDisplay-Medium.ttf);
@@ -18,18 +23,18 @@
     src: url(../resources/fonts/SFProDisplay-Regular.ttf);
   }
   
-  @font-face {
-    font-family: 'SFProLight';
-    src: url(../resources/fonts/SFProDisplay-Light.ttf);
-  }
   
   // Typography
   @mixin SFProBold {
     font-family: 'SFProBold';
   }
   
-  @mixin SFProSemibold {
-    font-family: 'SFProSemibold';
+  @mixin SFProUltralight {
+    font-family: 'SFProUltralight';
+  }
+  
+  @mixin SFProUltralightItalic {
+    font-family: 'SFProUltralightItalic';
   }
   
   @mixin SFProMedium {
@@ -40,6 +45,3 @@
     font-family: 'SFProRegular';
   }
   
-  @mixin SFProLight {
-    font-family: 'SFProLight';
-  }

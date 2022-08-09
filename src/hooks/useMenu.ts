@@ -8,14 +8,14 @@ const isRouteActive = (route: string) => {
 
 const useMenu = () => {
   const menu = [
-    { label: 'About', route: '/about', active: isRouteActive('/about') },
+    { label: 'About Us', route: '/about', active: isRouteActive('/about') },
     {
       label: 'Expertise',
       route: '/expertise',
       active: isRouteActive('/expertise'),
     },
-    { label: 'Posts', route: '/posts', active: isRouteActive('/posts') },
-    { label: 'Contact', route: '/contact', active: isRouteActive('/contact') },
+    { label: 'Posts & News', route: '/posts', active: isRouteActive('/posts') },
+    { label: 'Contact Us', route: '/contact', active: isRouteActive('/contact') },
   ]
   return menu
 }

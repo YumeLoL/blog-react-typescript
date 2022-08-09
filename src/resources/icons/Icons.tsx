@@ -7,7 +7,7 @@ interface Props {
 }
 
 const iconColors = {
-  dark: '#444444',
+  dark: '#231815',
 };
 
 export const Icon: React.FC<Props> = ({ type, className, onClick }) => {

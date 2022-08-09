@@ -8,22 +8,18 @@
   max-width: 1800px;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 0px 60px 0px;
+  padding: 20px 0px 60px 0px;
 
   &__logo {
-    font-size: rem(20px);
-    @include SFProBold;
-    color: $blackPrimary;
     z-index: 3;
 
     &:hover {
       cursor: pointer;
-      color: $primaryBlue;
     }
   }
 
   &__socials {
-    width: 210px;
+    width: 150px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -34,15 +30,15 @@
 .menu {
   position: absolute;
   left: 0;
-  top: 63.5px;
+  top: 70px;
   right: 0;
   z-index: 2;
   text-align: center;
 
   &__item {
     @include SFProRegular;
-    color: $blackPrimary;
-    font-size: rem(18px);
+    color: $textPrimary;
+    font-size: rem(20px);
     margin-left: 40px;
     margin-right: 40px;
 
@@ -52,11 +48,10 @@
 
     &--active {
       @include SFProRegular;
-      font-size: rem(18px);
+      font-size: rem(20px);
       margin-left: 40px;
       margin-right: 40px;
-      color: $primaryBlue;
-      border-bottom: 1px solid $primaryBlue;
+      border-bottom: 3px solid $primaryGold;
     }
   }
 }
