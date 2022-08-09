@@ -10,9 +10,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 1600px;
+        // max-width: 1600px;
         padding-left: 30px;
         padding-right: 30px;
 
+        &__children{
+            width: inherit;
+        }
     }
 }
