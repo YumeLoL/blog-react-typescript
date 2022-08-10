@@ -1,3 +1,6 @@
+@import '../../styles/helpers.scss', '../../styles/palette.scss',
+  '../../styles/typography.scss';
+
 .contact-container{
     max-width: 100vw;
     height: 700px;
@@ -7,15 +10,31 @@
     padding: 0 150px;
     display: flex;
     gap: 80px;
-    border: 2px solid red;
+
 }
 
 .contact{
     width: 40%;
-    border: 2px solid red;
+    
+    h1{
+        @include SFProMedium;
+      color: $primaryGold;
+      font-size: rem(50px);
+      margin: 40px 0;
+    }
+
+    p{
+        @include SFProUltralight;
+      color: $textPrimary;
+      font-size: rem(30px);
+      margin: 40px 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+ 
 }
 
 .location{
     width: 60%;
-    border: 2px solid red;
+  
 }

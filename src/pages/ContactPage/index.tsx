@@ -5,11 +5,9 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 import './index.scss'
 import env from '@beam-australia/react-env'
 
-
-
 const center = {
-  lat: -37.819918,
-  lng: 145.1208244,
+  lat: -37.8199223,
+  lng: 145.1230131,
 }
 
 const ContactPage = () => {
@@ -26,7 +24,7 @@ const ContactPage = () => {
     setMap(map)
   }, [])
 
-  const onUnmount = React.useCallback(function callback(map: any) {
+  const onUnmount = useCallback(function callback(map: any) {
     setMap(null)
   }, [])
 
@@ -37,16 +35,25 @@ const ContactPage = () => {
           img={require('../../resources/images/contactUs.png')}
           text={'Our Services'}
         />
-
+       
         <div className="contact-container">
-          <div className="contact">contact</div>
+          <div className="contact">
+            <h1>Get In Touch</h1>
+            <p>043318xxxx</p>
+            <p>Sky One, Box Hill VIC 3128</p>
+            <p>9am to 5pm (Monday to Friday)</p>
+            <p>
+              Serving clients throughout VIC (phone and video appointments
+              available)
+            </p>
+          </div>
 
           <div className="location">
             {isLoaded ? (
               <GoogleMap
-                mapContainerStyle={{width: '100%', height: '100%'}}
+                mapContainerStyle={{ width: '100%', height: '100%' }}
                 center={center}
-                zoom={15}
+                zoom={10}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
               >

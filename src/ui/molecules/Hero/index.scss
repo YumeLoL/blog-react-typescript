@@ -15,18 +15,18 @@
 
   &__title {
     position: relative;
-    top: -155px;
-    background-color: $primaryBlue;
-    opacity: 0.8;
-    min-height: 150px;
+    top: -134px;
+    background-color: $secondaryBlue;
+    opacity: 0.87;
+    min-height: 130px;
     width: auto;
     padding: 0 100px;
 
     h1 {
       display: inline-block;
-      @include SFProBold;
+      @include SFProUltralightItalic;
       color: $textWhite;
-      font-size: rem(60px);
+      font-size: rem(50px);
     }
   }
 }
