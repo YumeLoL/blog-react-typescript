@@ -1,65 +1,68 @@
 @import '../../styles/helpers.scss', '../../styles/palette.scss',
   '../../styles/typography.scss';
 
-  .heroAbout {
+.heroAbout {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -230px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.3701855742296919) 100%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(../../resources/images/hero1.jpg) no-repeat center center/cover;
+    background-size: 100% 100%;
+  }
+
+  &__content {
     position: relative;
-    width: 100vw;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      top: -230px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgb(0,0,0);
-      background:  linear-gradient(90deg, rgba(0,0,0,0.3701855742296919) 100%, rgba(0,0,0,1) 100%),
-        url(../../resources/images/hero1.jpg) no-repeat center center/cover;
-      background-size: 100% 100%;
-    }
-  
-    &__content {
-      position: relative;
-      width: 50%;
-      height: 500px;
-      padding: 100px 0;
-    }
-  
-    &__title {
-      @include SFProBold;
-      color: $textWhite;
-      font-size: rem(40px);
-      margin: 40px 0;
-    }
-  
-    &__subtitle {
-      @include SFProUltralightItalic;
-      color: $textWhite;
-      font-size: rem(30px);
-      margin: 40px 0;
-      letter-spacing: 2px;
-    }
+    width: 50%;
+    height: 500px;
+    padding: 100px 0;
   }
-  
-  .btn-round {
-    border: 3px solid $primaryGold;
-    border-radius: 100px;
-    color: $primaryGold;
-    padding: 15px 25px;
-    transition: background 0.4s ease-out;
-    background: transparent;
-  
-    &:hover {
-      background: $primaryGold;
-      color: $textWhite;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+
+  &__title {
+    @include SFProBold;
+    color: $textWhite;
+    font-size: rem(40px);
+    margin: 40px 0;
   }
-  
+
+  &__subtitle {
+    @include SFProUltralightItalic;
+    color: $textWhite;
+    font-size: rem(30px);
+    margin: 40px 0;
+    letter-spacing: 2px;
+  }
+}
+
+.btn-round {
+  border: 3px solid $primaryGold;
+  border-radius: 100px;
+  color: $primaryGold;
+  padding: 15px 25px;
+  transition: background 0.4s ease-out;
+  background: transparent;
+
+  &:hover {
+    background: $primaryGold;
+    color: $textWhite;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
 
 .intro {
   position: relative;
@@ -76,7 +79,7 @@
 
 .brief {
   @include SFProUltralightItalic;
- 
+
   width: 80%;
   font-size: rem(40px);
   font-weight: bold;
@@ -101,6 +104,6 @@
   }
 }
 
-.btn-square{
+.btn-square {
   padding: 15px 25px;
 }

@@ -1,7 +1,17 @@
 import React from 'react'
-import { Props } from '../..'
 import Button from '../../../../ui/atoms/Button'
 import './index.scss'
+
+interface Props {
+  className?: string
+  data: {
+    id: number
+    coverUrl: string
+    title: string
+    createdAt: string
+    description?: string
+  }
+}
 
 const PostCard: React.FC<Props> = ({ data }) => {
   const { id, coverUrl, title, createdAt, description } = data
@@ -14,16 +24,15 @@ const PostCard: React.FC<Props> = ({ data }) => {
       />
 
       <div className="card__detail">
-        <a href=''>
-          <h1 className="card__detail__title">
-            post id: {id} {title}
-          </h1>
+        <a href="">
+          <h1 className="card__detail__title">{title.toUpperCase()}</h1>
         </a>
         <p>{createdAt}</p>
         <p>{description}</p>
 
-        <Button className="card__detail__btn" onClick={() => alert('click')}
-        >Read More</Button>
+        <Button className="card__detail__btn" goto={`${id}`}>
+          Read More
+        </Button>
       </div>
     </div>
   )

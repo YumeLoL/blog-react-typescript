@@ -14,12 +14,7 @@ const AboutPage = () => {
             best legal services for all customers.
           </h2>
 
-          <Button
-            className="btn-round"
-            onClick={() => {
-              alert('Click me')
-            }}
-          >
+          <Button className="btn-round" goto={''}>
             Contact Us
           </Button>
         </div>
@@ -50,7 +45,7 @@ const AboutPage = () => {
           </p>
         </div>
 
-        <Button className={'btn-square'} onClick={() => alert('click me')}>
+        <Button className={'btn-square'} goto={'/expertise'}>
           View Our Services
         </Button>
       </div>
