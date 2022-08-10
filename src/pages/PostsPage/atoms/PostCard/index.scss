@@ -1,0 +1,42 @@
+@import '../../../../styles/typography.scss', '../../../../styles/palette.scss',
+  '../../../../styles/helpers.scss';
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-wrap: column;
+  gap: 50px;
+  flex-direction: row;
+  margin: 40px 20px;
+  position: relative;
+  top: -300px;
+
+  &__img-container {
+    //   to center img
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    height: 292px;
+    background-color: #ddd;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  &__detail{
+    width: 60%;
+    padding: 10px 40px;
+    align-self: center;
+
+    &__title {
+      font-size: rem(32px);
+      @include SFProBold;
+      margin-top: 15px;
+
+      &:hover {
+          cursor: pointer;
+      }
+    }
+
+  }
+
+}
