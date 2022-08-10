@@ -102,12 +102,5 @@
 }
 
 .btn-square{
-    border: 3px solid $primaryGold;
-    color: $primaryGold;
-
-    &:hover {
-        background: $primaryGold;
-        color: $textWhite;
-        transition: background 0.4s ease-out;
-    }
+  padding: 15px 25px;
 }
