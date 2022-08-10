@@ -13,11 +13,13 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <Router>
     <Routes>
-      <Route path="about" element={<AboutPage />} />
-      <Route path="expertise" element={<ExpertisePage />} />
-      <Route path="posts" element={<PostsPage />} />
-      <Route path="posts/:id" element={<PostDetailPage />} />
-      <Route path="contact" element={<ContactPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/expertise" element={<ExpertisePage />} />
+      <Route path="/posts" >
+        <Route index element={<PostsPage/>}></Route>
+        <Route path=":id" element={<PostDetailPage />} />
+      </Route>
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   </Router>
 )

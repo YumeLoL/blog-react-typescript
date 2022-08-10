@@ -1,6 +1,17 @@
 @import '../../../styles/helpers.scss', '../../../styles/palette.scss',
   '../../../styles/typography.scss';
 
+.nav-container {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -8,10 +19,12 @@
   max-width: 1600px;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px 60px 0px;
+  padding: 20px 60px;
+  
 
   &__logo {
     z-index: 3;
+ 
 
     &:hover {
       cursor: pointer;

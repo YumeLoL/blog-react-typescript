@@ -2,8 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import useMenu from '../../../hooks/useMenu'
 import env from '@beam-australia/react-env'
-import './index.scss'
 import { Icon } from '../../../resources/icons/Icons'
+import './index.scss'
 
 const Navbar = () => {
   const menu = useMenu()
@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <>
+    <div className="nav-container">
       <div className="navbar">
         <div className="navbar__logo">
           <a href="/">
@@ -46,7 +46,7 @@ const Navbar = () => {
           </span>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
