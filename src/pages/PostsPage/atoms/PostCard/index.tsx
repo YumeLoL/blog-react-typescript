@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../../../ui/atoms/Button'
 import './index.scss'
 
@@ -14,7 +15,9 @@ interface Props {
 }
 
 const PostCard: React.FC<Props> = ({ data }) => {
+  const navigate = useNavigate()
   const { id, coverUrl, title, createdAt, description } = data
+
   return (
     <div className="card">
       <img
@@ -24,15 +27,16 @@ const PostCard: React.FC<Props> = ({ data }) => {
       />
 
       <div className="card__detail">
-        <a href="">
-          <h1 className="card__detail__title">{title.toUpperCase()}</h1>
-        </a>
-        <p>{createdAt}</p>
+        <Link className="card__detail__link-btn" to={`${id}`}>
+          {title.toUpperCase()}
+        </Link>
+
+        <h4>{createdAt}</h4>
         <p>{description}</p>
 
-        <Button className="card__detail__btn" goto={`${id}`}>
-          Read More
-        </Button>
+        <Button className="card__detail__btn" onClick={() => navigate(`/posts/${id}`)} text="Read More"/>
+         
+       
       </div>
     </div>
   )

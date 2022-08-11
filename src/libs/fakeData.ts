@@ -1,7 +1,7 @@
 export const fakeData = [
   {
     id: 1,
-    coverUrl: require('../../resources/images/post1.jpg'),
+    coverUrl: require('../resources/images/post1.jpg'),
     title: 'The first post',
     createdAt: '29 July 2022',
     description:

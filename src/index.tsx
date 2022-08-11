@@ -7,6 +7,7 @@ import ExpertisePage from './pages/ExpertisePage'
 import PostsPage from './pages/PostsPage'
 import reportWebVitals from './reportWebVitals'
 import PostDetailPage from './pages/PostDetailPage'
+import AdminLoginPage from './pages/AdminLoginPage'
 import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
@@ -15,11 +16,21 @@ root.render(
     <Routes>
       <Route path="/about" element={<AboutPage />} />
       <Route path="/expertise" element={<ExpertisePage />} />
-      <Route path="/posts" >
-        <Route index element={<PostsPage/>}></Route>
+      <Route path="/posts">
+        <Route index element={<PostsPage />}></Route>
         <Route path=":id" element={<PostDetailPage />} />
       </Route>
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admin" element={<AdminLoginPage />} />
+
+      <Route
+        path="*"
+        element={
+          <div>
+            <h1>404 Page not found</h1>
+          </div>
+        }
+      />
     </Routes>
   </Router>
 )

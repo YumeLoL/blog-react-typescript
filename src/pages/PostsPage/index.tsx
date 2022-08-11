@@ -1,5 +1,5 @@
 import React from 'react'
-import { fakeData } from '../../libs/http/fakeData'
+import { fakeData } from '../../libs/fakeData'
 import Hero from '../../ui/molecules/Hero'
 import Layout from '../../ui/organisms/layout'
 import PostCard from './atoms/PostCard'

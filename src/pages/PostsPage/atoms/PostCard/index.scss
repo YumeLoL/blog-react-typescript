@@ -5,6 +5,7 @@
   width: 100%;
   display: flex;
   flex-wrap: column;
+  
   gap: 50px;
   flex-direction: row;
   margin: 40px 20px;
@@ -27,24 +28,27 @@
     padding: 10px 40px;
     align-self: center;
 
-    &__title {
-      font-size: rem(32px);
+    &__link-btn {
+      font-size: rem(35px);
       @include SFProBold;
-      margin-top: 15px;
+      color: $primaryGold;
+      text-decoration: none;
+      display: inline-block;
 
       &:hover {
         cursor: pointer;
       }
     }
 
+
+    p{
+      font-size: rem(25px);
+      @include SFProRegular;
+    }
+
     &__btn {
       padding: 5px;
       font-size: rem(20px);
-    }
-
-    a {
-      text-decoration: none;
-      color: $primaryGold;
     }
   }
 }
