@@ -1,9 +1,9 @@
+import env from "@beam-australia/react-env";
 import axios from "axios";
-import env from '@beam-australia/react-env';
 
 
 interface Login {
-    data: { token: string; };
+    data: {token: string};
     email: string;
     password: string;
     role: string;

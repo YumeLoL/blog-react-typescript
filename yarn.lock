@@ -1911,6 +1911,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookie@*":
+  "integrity" "sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g=="
+  "resolved" "https://registry.npmjs.org/@types/cookie/-/cookie-0.5.1.tgz"
+  "version" "0.5.1"
+
 "@types/crypto-js@^4.1.1":
   "integrity" "sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA=="
   "resolved" "https://registry.npmjs.org/@types/crypto-js/-/crypto-js-4.1.1.tgz"
@@ -2089,6 +2094,14 @@
   "integrity" "sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw=="
   "resolved" "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz"
   "version" "1.2.4"
+
+"@types/react-cookies@^0.1.0":
+  "integrity" "sha512-Py5k0iIVxwm0cQQSlUa1p5DJPf7EpXj/MMDs451U06HEseP/QvzdDAdE44x0hsxaelDPp8niVJWFDT3ajeRYPg=="
+  "resolved" "https://registry.npmjs.org/@types/react-cookies/-/react-cookies-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "@types/cookie" "*"
+    "@types/express" "*"
 
 "@types/react-dom@^18.0.0":
   "integrity" "sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA=="
@@ -3483,6 +3496,11 @@
   "integrity" "sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ=="
   "resolved" "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
   "version" "1.0.6"
+
+"cookie@^0.3.1":
+  "integrity" "sha512-+IJOX0OqlHCszo2mBUq+SrEbCj6w7Kpffqx60zYbPTFaO4+yYgRjHwcZNpWvaTylDHaV7PPmBHzSecZiMhtPgw=="
+  "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz"
+  "version" "0.3.1"
 
 "cookie@0.5.0":
   "integrity" "sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw=="
@@ -8312,6 +8330,14 @@
     "raf" "^3.4.1"
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
+
+"react-cookies@^0.1.1":
+  "integrity" "sha512-PP75kJ4vtoHuuTdq0TAD3RmlAv7vuDQh9fkC4oDlhntgs9vX1DmREomO0Y1mcQKR9nMZ6/zxoflaMJ3MAmF5KQ=="
+  "resolved" "https://registry.npmjs.org/react-cookies/-/react-cookies-0.1.1.tgz"
+  "version" "0.1.1"
+  dependencies:
+    "cookie" "^0.3.1"
+    "object-assign" "^4.1.1"
 
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="

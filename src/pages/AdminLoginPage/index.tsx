@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AES } from 'crypto-js'
 import Button from '../../ui/atoms/Button'
 import { Input } from '../../ui/atoms/Input'
 import { LoginPost } from '../../libs/http/auth/auth'
+import {save} from 'react-cookies'
 import './index.scss'
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate();
 
   const onChangeUsername = (value: string): void => {
     setEmail(value)
@@ -24,8 +27,14 @@ const AdminLoginPage = () => {
     const {data} = await LoginPost({ email: email,
       password: AES.encrypt(password, 'cms').toString(),
       role: 'manager',})
+
+    if(data.data.token) {
+      // to save token into cookies and navigate to About Page
+      save('token', data.data.token, {path: '/'})
+      navigate('/about')
+    }
     
-    console.log(data)
+    console.log(data.data.token)
      
   }
 
