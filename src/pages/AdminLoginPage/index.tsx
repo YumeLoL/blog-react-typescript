@@ -36,7 +36,7 @@ const AdminLoginPage = () => {
           onChange={onChangePassword}
           className="login__items__input"
         />
-        <Button text="Login" onClick={onLogin} className={''} />
+        <Button text="Login" onClick={onLogin} className={'login__items__btn'} />
       </div>
     </div>
   )
