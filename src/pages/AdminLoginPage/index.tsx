@@ -34,7 +34,7 @@ const AdminLoginPage = () => {
       navigate('/about')
     }
     
-    console.log(data.data.token)
+
      
   }
 

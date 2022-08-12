@@ -1,8 +1,12 @@
 import React from 'react'
+import { load, select } from 'react-cookies'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../ui/atoms/Button'
 import Layout from '../../ui/organisms/layout'
+
 import './index.scss'
+
+
 
 const AboutPage = () => {
   const navigate = useNavigate()
@@ -17,7 +21,12 @@ const AboutPage = () => {
             best legal services for all customers.
           </h2>
 
-          <Button className="btn-round" onClick={() => navigate('/contact')} text="Contact Us"/>
+          <Button className="btn-round" onClick={() =>{
+
+          //  navigate('/contact')
+            console.log("saved token:", load('token'));
+          }
+        } text="Contact Us"/>
             
         </div>
       </div>
