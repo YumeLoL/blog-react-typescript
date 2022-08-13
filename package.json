@@ -16,6 +16,7 @@
     "aes-encryption": "^1.0.4",
     "axios": "^0.27.2",
     "crypto-js": "^4.1.1",
+    "draft-js": "^0.11.7",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-cookies": "^0.1.1",
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
+    "@types/draft-js": "^0.11.9",
     "@types/react-cookies": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
