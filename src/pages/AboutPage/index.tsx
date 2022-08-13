@@ -7,6 +7,7 @@ import './index.scss'
 
 const AboutPage = () => {
   const navigate = useNavigate()
+  
 
   return (
     <Layout>
@@ -20,7 +21,10 @@ const AboutPage = () => {
 
           <Button
             className="btn-round"
-            onClick={() => navigate('/contact')}
+            onClick={() => {
+              navigate('/contact')
+         
+            }}
             text="Contact Us"
           />
         </div>

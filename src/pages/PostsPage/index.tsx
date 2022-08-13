@@ -1,4 +1,6 @@
+
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'
 import { fakeData } from '../../libs/fakeData'
 import Button from '../../ui/atoms/Button'
@@ -7,10 +9,11 @@ import Layout from '../../ui/organisms/layout'
 import PostCard from './atoms/PostCard'
 import './index.scss'
 
-
 const PostsPage = () => {
-  const {isUserLogged, setIsUserLogged} = useContext(UserContext)
-setIsUserLogged(true)
+  const { isUserLogged, setIsUserLogged } = useContext(UserContext)
+  setIsUserLogged(true)
+  const navigate = useNavigate()
+
   return (
     <Layout>
       <Hero
@@ -18,8 +21,15 @@ setIsUserLogged(true)
         text={'Blogs & News'}
       />
 
-      {isUserLogged && <Button className={''} onClick={()=>console.log("add new")} text={'Add New Post'} /> }
-      
+      {/* if admin login, show the button */}
+      {isUserLogged && (
+        <Button
+          className={'add-btn'}
+          onClick={() =>  navigate('/EditPostPage')}
+          text={'+ Add New Posts'}
+        />
+      )}
+
       <div className="posts-container">
         {fakeData.map((post) => {
           return (

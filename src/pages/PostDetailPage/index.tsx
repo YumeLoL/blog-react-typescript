@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { UserContext } from '../../contexts/UserContext'
 import Hero from '../../ui/molecules/Hero'
 import Layout from '../../ui/organisms/layout'
 import './index.scss'
 
 const PostDetailPage = () => {
+  const {isUserLogged, setIsUserLogged} = useContext(UserContext)
   const { id } = useParams()
 
   return (
