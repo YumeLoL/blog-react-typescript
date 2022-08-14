@@ -11,7 +11,9 @@ import {
 // import "draft-js/dist/Draft.css";
 import { linkDecorator } from "./Link";
 import { mediaBlockRenderer } from "./Media";
-import './index.css'
+// import './index.css'
+import '../../../../node_modules/draft-js/dist/Draft.css'
+
 
 const TEXT_EDITOR_ITEM = "draft-js-example-item";
 
@@ -77,7 +79,7 @@ const RichTextEditor: React.FC = () => {
   };
 
   return (
-    <div className="texteditor">
+    <div className="DraftEditor-editorContainer">
       <button onMouseDown={(e) => handleBlockClick(e, "header-one")}>H1</button>
       <button onMouseDown={(e) => handleBlockClick(e, "header-two")}>H2</button>
       <button onMouseDown={(e) => handleBlockClick(e, "header-three")}>H3</button>
@@ -106,18 +108,19 @@ const RichTextEditor: React.FC = () => {
       <button
         disabled={editorState.getUndoStack().size <= 0}
         onMouseDown={() => setEditorState(EditorState.undo(editorState))}>
-        取り消し
+        Undo Typing
       </button>
       <button
         disabled={editorState.getRedoStack().size <= 0}
         onMouseDown={() => setEditorState(EditorState.redo(editorState))}>
-        やり直し
+        Repeat Typing
       </button>
       <Editor
         editorState={editorState}
         onChange={setEditorState}
         handleKeyCommand={handleKeyCommand}
         blockRendererFn={mediaBlockRenderer}
+        
       />
       <button
         className="save"
