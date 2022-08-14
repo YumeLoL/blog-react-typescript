@@ -1,22 +1,60 @@
-@import '../../styles/helpers.scss', '../../styles/palette.scss',
-  '../../styles/typography.scss';
+@import '../../styles/typography.scss', '../../styles/palette.scss',
+  '../../styles/helpers.scss';
 
-.add-btn {
-  display: inline-block;
+.add-post {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  padding-right: 10px;
+  padding-left: 10px;
   position: relative;
   top: -450px;
-  left: 100px;
-  min-width: 150px;
-  cursor: pointer;
-  z-index: 1;
-  margin: 30px 0;
-  border: none;
-  color: $textPrimary;
+  margin: 0 auto;
 
-  &:hover {
-    background-color: unset !important;
-    color: unset !important;
+  &__title {
+    color: $textPrimary;
+    @include SFProRegular;
+    font-size: rem(28px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__add-cover {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    .photo {
+      display: inline-block;
+      color: $textPrimary;
+      @include SFProRegular;
+      font-size: rem(18px);
+      margin-right: 10px;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      color: $textPrimary;
+      @include SFProRegular;
+      font-size: rem(18px);
+    }
+  }
+
+  &__editor {
+    min-height: 200px;
+  }
+
+  &__type {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+
+    p {
+      margin-left: 10px;
+    }
   }
 }
-
-
