@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AES } from 'crypto-js'
 import Button from '../../ui/atoms/Button'
 import { Input } from '../../ui/atoms/Input'
-import { LoginPost } from '../../libs/http/auth/auth'
+import { LoginPost } from '../../libs/http/httpService'
 import {save} from 'react-cookies'
 import './index.scss'
+import { UserContext } from '../../contexts/UserContext'
+
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const {setIsUserLogged} = useContext(UserContext)
   const navigate = useNavigate();
 
   const onChangeUsername = (value: string): void => {
@@ -29,11 +32,13 @@ const AdminLoginPage = () => {
       role: 'manager',})
 
     if(data.data.token) {
-      // to save token into cookies and navigate to About Page
+      // to save token into cookies 
+      // set IsUserLogged to be true
+      // navigate to About Page
       save('token', data.data.token, {path: '/'})
+      setIsUserLogged(true)
       navigate('/about')
     }
-    
 
      
   }

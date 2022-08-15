@@ -1,13 +1,9 @@
+
 import env from '@beam-australia/react-env'
 import axios from 'axios'
 import { load } from 'react-cookies'
 
-interface Login {
-  data: { token: string }
-  email: string
-  password: string
-  role: string
-}
+
 
 const axiosInstance = axios.create({
   baseURL: env('API_URL'),
@@ -35,5 +31,4 @@ axiosInstance.interceptors.request.use(
   }
 )
 
-export const LoginPost = (data = {}): Promise<{ data: Login }> =>
-  axiosInstance.post(`/login`, data)
+export default axiosInstance

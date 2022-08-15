@@ -1,5 +1,6 @@
 
 import React, { useContext } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'
 import { fakeData } from '../../libs/fakeData'
@@ -11,8 +12,10 @@ import './index.scss'
 
 const PostsPage = () => {
   const { isUserLogged, setIsUserLogged } = useContext(UserContext)
-  setIsUserLogged(true)
+
   const navigate = useNavigate()
+
+ 
 
   return (
     <Layout>

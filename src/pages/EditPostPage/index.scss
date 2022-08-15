@@ -57,4 +57,16 @@
       margin-left: 10px;
     }
   }
+
+  
 }
+
+.submit-btn{
+  color: $textPrimary;
+  background: $primaryGold;
+
+  &:hover {
+    color: $textPrimary !important;
+  }
+}
+
