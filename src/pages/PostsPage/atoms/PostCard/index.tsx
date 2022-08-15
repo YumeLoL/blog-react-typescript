@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from '../../../../contexts/UserContext'
 import Button from '../../../../ui/atoms/Button'
 import './index.scss'
 
@@ -15,8 +16,17 @@ interface Props {
 }
 
 const PostCard: React.FC<Props> = ({ data }) => {
+  const { isUserLogged } = useContext(UserContext)
   const navigate = useNavigate()
   const { id, coverUrl, title, createdAt, description } = data
+
+  // if admin login, navigate to EditPost page after onClick
+  const handleClick = (id: number) => {
+    if (!isUserLogged) navigate(`/posts/${id}`)
+    else {
+      navigate(`/editpostpage/${id}`)
+    }
+  }
 
   return (
     <div className="card">
@@ -34,9 +44,11 @@ const PostCard: React.FC<Props> = ({ data }) => {
         <h4>{createdAt}</h4>
         <p>{description}</p>
 
-        <Button className="card__detail__btn" onClick={() => navigate(`/posts/${id}`)} text="Read More"/>
-         
-       
+        <Button
+          className="card__detail__btn"
+          onClick={() => handleClick(id)}
+          text={isUserLogged ? 'Edit' : 'Read More'}
+        />
       </div>
     </div>
   )

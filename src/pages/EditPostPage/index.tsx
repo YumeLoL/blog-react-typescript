@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import RichTextEditor from 'react-rte'
-import {  useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Hero from '../../ui/molecules/Hero'
 import Layout from '../../ui/organisms/layout'
 import { Input } from '../../ui/atoms/Input'
@@ -14,66 +14,74 @@ const EditPostPage = () => {
   const [editorValue, setEditorValue] = useState(
     RichTextEditor.createEmptyValue()
   )
+  const { id } = useParams() // to get id
   const [title, setTitle] = useState('')
   const [coverUrl, setCoverUrl] = useState('')
   const [isBookEssay, setIsBookEssay] = useState(false)
   const { isUserLogged } = useContext(UserContext)
+  const [isEdit, setIsEdit] = useState(false)
 
   // if admin does not login, then navigate to admin logoin page
   useEffect(() => {
-    if(!isUserLogged) navigate('./admin')
-  },[isUserLogged])
+    if (!isUserLogged) navigate('./admin')
+  }, [isUserLogged])
 
-  // isBookEssay checkbox 
+  // checking if this is add new post page or edit post page
+  useEffect(() => {
+    if (!id) setIsEdit(false)
+    else setIsEdit(true)
+  }, [id])
+
+  // isBookEssay checkbox
   const onChangeType = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsBookEssay(e.target.checked)
   }
 
-  // add cover image function 
-  const onAddCover = async (e)=>{
+  // adding cover image
+  const onAddCover = async (e) => {
     console.log(e.target.file[0])
     const image = e.target.file[0]
 
     const fd = new FormData()
     fd.append('file', image, image.name)
-   
+
     // mock http request
     const photoUrl = await PostImage(fd)
     setCoverUrl(photoUrl.data.image)
   }
 
-  // add a new post (mock http request)
-  const addPost = async () =>{
-    const text = editorValue.toString('html')
-    const post = {
-      coverUrl,
-      title,
-      text,
-      isBookEssay
-    }
+  // adding a new post (mock http request)
+  const addPost = async () => {
+    // const text = editorValue.toString('html')
+    // const post = {
+    //   coverUrl,
+    //   title,
+    //   text,
+    //   isBookEssay,
+    // }
 
-    await AddPost(post).then(() => 
-    alert("add post successfully")
-    )
-    navigate('./posts')
+    // await AddPost(post).then(() => alert('add post successfully'))
+    // navigate('./posts')
+    alert('add post successfully')
+  }
+
+  // editing the existing post (mock http request)
+  const editPost = async () => {
+    alert('edit post successfully')
   }
 
   return (
     <Layout>
       <Hero
         img={require('../../resources/images/scale.jpg')}
-        text={'Add A New Post'}
+        text={isEdit ? 'Edit The Post' : 'Add A New Post'}
       />
 
       <div className="add-post">
-        <h1 className="add-post__title">Create A New Post</h1>
+        <h1 className="add-post__title">{isEdit ? 'Edit The Post' : 'Add A New Post'}</h1>
         <div className="add-post__add-cover">
           <p className="photo">Add Cover</p>
-          <input
-            type="file"
-            className="upload-btn"
-            onChange={onAddCover}
-          />
+          <input type="file" className="upload-btn" onChange={onAddCover} />
         </div>
 
         <Input
@@ -98,12 +106,13 @@ const EditPostPage = () => {
         </div>
 
         <Button
-          text={ 'Add Post'}
-          onClick={ addPost} className={'submit-btn'}/>
+          text={isEdit ? 'Edit Post' : 'Add Post'}
+          onClick={isEdit ? editPost : addPost}
+          className={'submit-btn'}
+        />
       </div>
     </Layout>
   )
 }
 
 export default EditPostPage
-

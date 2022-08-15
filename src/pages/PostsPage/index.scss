@@ -13,9 +13,13 @@
 }
 
 .add-btn {
+  width: 80%;
   position: relative;
-  top: -350px;
-  left: 100px;
+  top: -450px;
+  left: 0;
+  display: block;
+  text-align: left;
+  margin: 0 auto;
   border: none;
   color: $textPrimary;
 

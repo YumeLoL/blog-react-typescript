@@ -22,10 +22,15 @@ root.render(
         <Route path="/expertise" element={<ExpertisePage />} />
 
         <Route path="/posts">
-          <Route index element={<PostsPage />}></Route>
+          <Route index element={<PostsPage />}/>
           <Route path=":id" element={<PostDetailPage />} />
         </Route>
-        <Route path="/editpostpage" element={<EditPostPage />} />
+
+        <Route path="/editpostpage">
+          <Route index element={<EditPostPage />}/>
+          <Route path=":id" element={<EditPostPage />} />
+        </Route>
+
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminLoginPage />} />
 

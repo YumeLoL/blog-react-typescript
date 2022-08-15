@@ -1,6 +1,5 @@
 
 import React, { useContext } from 'react'
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../contexts/UserContext'
 import { fakeData } from '../../libs/fakeData'
@@ -11,11 +10,8 @@ import PostCard from './atoms/PostCard'
 import './index.scss'
 
 const PostsPage = () => {
-  const { isUserLogged, setIsUserLogged } = useContext(UserContext)
-
+  const { isUserLogged } = useContext(UserContext)
   const navigate = useNavigate()
-
- 
 
   return (
     <Layout>
@@ -28,7 +24,7 @@ const PostsPage = () => {
       {isUserLogged && (
         <Button
           className={'add-btn'}
-          onClick={() =>  navigate('/EditPostPage')}
+          onClick={() =>  navigate('/editpostpage')}
           text={'+ Add New Posts'}
         />
       )}
