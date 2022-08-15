@@ -6,7 +6,7 @@ import Layout from '../../ui/organisms/layout'
 import { Input } from '../../ui/atoms/Input'
 import { UserContext } from '../../contexts/UserContext'
 import Button from '../../ui/atoms/Button'
-import { AddPost, PostImage } from '../../libs/http/httpService'
+import { PostImage } from '../../libs/http/httpService'
 import './index.scss'
 
 const EditPostPage = () => {
