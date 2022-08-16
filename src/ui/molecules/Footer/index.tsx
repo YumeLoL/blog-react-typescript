@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import useMenu from '../../../hooks/useMenu'
 import { Icon } from '../../../resources/icons/Icons'
 import env from '@beam-australia/react-env'
-import FooterForm from '../../atoms/FooterForm'
+import FooterForm from '../FooterForm'
 import './index.scss'
+
 
 const Footer = () => {
   const menu = useMenu()
@@ -15,12 +16,8 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__top">
         <div className="footer__top__info">
-          <img
-            src={require('../../../resources/logo/navlogo.png')}
-            alt="logo"
-          />
           <p>
-            About Mustard Seed Lawyers dolor sit amet, consectetur adipiscing
+            <span>Mustard Seed Lawyers</span> dolor sit amet, consectetur adipiscing
             elit. Maecenas eget nisl id libero tincidunt sodales.
           </p><br />
           <p>
@@ -32,6 +29,8 @@ const Footer = () => {
         <FooterForm />
 
         <div className="footer__top__menu">
+         <div className="footer__top__menu__container">
+
           {menu.map((item) => (
             <span
               className={`menu__item${item.active ? '--active' : ''}`}
@@ -41,12 +40,13 @@ const Footer = () => {
               {item.label}
             </span>
           ))}
+         </div>
         </div>
       </div>
 
       <div className="footer__bottom">
         <p>2022 &copy; All Rights Reserved. Developed By Yumeng Li</p>
-        <div className="footer__bottom__socials">
+        <div className="navbar__socials">
           <a
             href={env('LINKEDIN_URL')}
             target="_blank"

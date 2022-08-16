@@ -4,7 +4,7 @@
 .nav-container {
   width: 100%;
   display: flex;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   justify-content: center;
@@ -52,8 +52,7 @@
     @include SFProRegular;
     color: $textWhite;
     font-size: rem(25px);
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 30px 40px;
 
     &:hover {
       cursor: pointer;
@@ -63,8 +62,7 @@
       @include SFProRegular;
       color: $primaryGold;
       font-size: rem(25px);
-      margin-left: 40px;
-      margin-right: 40px;
+      margin: 30px 40px;
       border-bottom: 3px solid $primaryGold;
     }
   }

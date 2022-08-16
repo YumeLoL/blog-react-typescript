@@ -1,5 +1,6 @@
 export interface IButton {
     className: string
-    onClick: (id?) => void
+    onClick?: (id?) => void
     text: string
+    type?: string
 }

@@ -18,3 +18,24 @@
     transition: background 0.4s ease-out;
   }
 }
+
+.btn-round {
+  border: 3px solid $primaryGold;
+  border-radius: 100px;
+  color: $primaryGold;
+  padding: 15px 25px;
+  transition: background 0.4s ease-out;
+  background: transparent;
+
+  &:hover {
+    background: $primaryGold;
+    color: $textWhite;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-square {
+  padding: 15px 25px;
+  border-radius: 15px;
+}

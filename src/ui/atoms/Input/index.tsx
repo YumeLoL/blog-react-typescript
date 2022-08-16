@@ -6,8 +6,9 @@ interface Props {
   placeholder?: string;
   className?: string;
   value?: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   errorMessage?: string;
+  name?: string;
 }
 
 export const Input: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const Input: React.FC<Props> = ({
   value,
   onChange,
   errorMessage,
+  name,
 }): React.ReactElement => {
   return (
     <>
@@ -27,6 +29,7 @@ export const Input: React.FC<Props> = ({
         }`}
         placeholder={placeholder}
         value={value}
+        name={name}
         onChange={(event) => onChange(event?.target.value)}
       />
 
