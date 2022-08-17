@@ -1,5 +1,5 @@
 <p align="center">
-<img src="public/project-img.png" width="600" height="300"/>
+<img src="public/project-img.png" width="600" height="380"/>
 
 
 This project is a company website demo with simple CMS to manage blog posts. 
@@ -8,23 +8,23 @@ This project is a company website demo with simple CMS to manage blog posts.
 ### Main Features
 - Admin Login
 <p align="center">
-<img src="public/admin-login.png" width="500" height="250"/>
+<img src="public/admin-login.png" width="500" height="320"/>
 
 - Posts Management - After login, the Add/Edit button shows up allow to manage posts. 
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/admin-management.png" width="400" height="210"/>
+<img src="public/admin-management.png" width="500" height="320"/>
 
 - Add/Edit Post Page
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/add-post.png" width="400" height="210"/>
+<img src="public/add-post.png" width="500" height="320"/>
 
 - Contact Us - Use EmialJS API to send emails. Admin would recieve consultation email via website. 
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/contact-form.png" width="400" height="210"/>
+<img src="public/contact-form.png" width="500" height="320"/>
 
 - Google Map 
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/map.png" width="400" height="210"/>
+<img src="public/map.png" width="500" height="320"/>
 
 
 
