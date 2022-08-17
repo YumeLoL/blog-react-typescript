@@ -28,6 +28,10 @@ const PostCard: React.FC<Props> = ({ data }) => {
     }
   }
 
+  const handleDelete = (id: number) => {
+    alert(`Delete ${id}`)
+  }
+
   return (
     <div className="card">
       <img
@@ -43,12 +47,19 @@ const PostCard: React.FC<Props> = ({ data }) => {
 
         <h4>{createdAt}</h4>
         <p>{description}</p>
-
+      <div className="button-container">
         <Button
-          className="card__detail__btn"
+          className={isUserLogged? `btn-text`:"btn-square"}
           onClick={() => handleClick(id)}
-          text={isUserLogged ? 'Edit' : 'Read More'}
+          text={isUserLogged ? '>> To Edit' : 'Read More'}
         />
+
+        {isUserLogged && <Button className='btn-text'
+          onClick={() => handleDelete(id)}
+          text='>> To Delete'/>
+        }
+
+      </div>
       </div>
     </div>
   )

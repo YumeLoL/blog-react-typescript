@@ -23,7 +23,7 @@ const PostsPage = () => {
       {/* if admin login, show the button */}
       {isUserLogged && (
         <Button
-          className={'add-btn'}
+          className={'btn-text'}
           onClick={() =>  navigate('/editpostpage')}
           text={'+ Add New Posts'}
         />

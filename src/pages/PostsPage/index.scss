@@ -1,7 +1,6 @@
 @import '../../styles/helpers.scss', '../../styles/palette.scss',
   '../../styles/typography.scss';
 
-
 .posts-container {
   display: flex;
   flex-direction: column;
@@ -12,19 +11,8 @@
   padding: 0 100px;
 }
 
-.add-btn {
-  width: 80%;
+.btn-text {
   position: relative;
   top: -450px;
-  left: 0;
-  display: block;
-  text-align: left;
-  margin: 0 auto;
-  border: none;
-  color: $textPrimary;
-
-  &:hover{
-    background: none;
-    color: inherit;
-  }
+  left: 100px;
 }

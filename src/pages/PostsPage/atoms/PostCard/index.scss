@@ -46,9 +46,24 @@
       @include SFProRegular;
     }
 
-    &__btn {
+  
+
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+
+    .btn-square {
       padding: 5px;
       font-size: rem(20px);
+    }
+    .btn-text {
+      margin-top:10px;
+      top: 0;
+      left: 0;
+      font-size: rem(20px);
+      font-weight: bold;
     }
   }
 }

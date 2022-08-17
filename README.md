@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+
+![website image](../../../YUME/Desktop/blog-project/public/project-img.png)
+
+This project is a company website demo with simple CMS to manage blog posts. 
+
+
+### Main Features
+- Admin Login
+![admin login](../../../YUME/Desktop/blog-project/public/admin-login.png)
+- Posts Management - After login, the Add/Edit button shows up allow to manage posts. 
+![post management](../../../YUME/Desktop/blog-project/public/admin-management.png)
+- Add/Edit Post Page
+![add post page](../../../YUME/Desktop/blog-project/public/add-post.png)
+- Contact Us - Use EmialJS API to send emails. Admin would recieve consultation email via website. 
+![contact form](../../../YUME/Desktop/blog-project/public/contact-form.png)
+- Google Map 
+![map](../blog-project/public/map.png)
+
+
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
