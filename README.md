@@ -1,5 +1,5 @@
 <p align="center">
-<img src="public/project-img.png" width="400" height="210"/>
+<img src="public/project-img.png" width="600" height="300"/>
 
 
 This project is a company website demo with simple CMS to manage blog posts. 
@@ -8,7 +8,7 @@ This project is a company website demo with simple CMS to manage blog posts.
 ### Main Features
 - Admin Login
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/admin-login.png" width="400" height="210"/>
+<img src="public/admin-login.png" width="500" height="250"/>
 
 - Posts Management - After login, the Add/Edit button shows up allow to manage posts. 
 <p align="center">
