@@ -6,15 +6,15 @@ This project is a company website demo with simple CMS to manage blog posts.
 
 ### Main Features
 - Admin Login
-![admin login](../../../YUME/Desktop/blog-project/public/admin-login.png)
+![admin login](./public/admin-login.png)
 - Posts Management - After login, the Add/Edit button shows up allow to manage posts. 
-![post management](../../../YUME/Desktop/blog-project/public/admin-management.png)
+[post management](./public/admin-management.png)
 - Add/Edit Post Page
-![add post page](../../../YUME/Desktop/blog-project/public/add-post.png)
+![add post page](./public/add-post.png)
 - Contact Us - Use EmialJS API to send emails. Admin would recieve consultation email via website. 
-![contact form](../../../YUME/Desktop/blog-project/public/contact-form.png)
+![contact form](./public/contact-form.png)
 - Google Map 
-![map](../blog-project/public/map.png)
+![map](./public/map.png)
 
 
 
