@@ -1,5 +1,5 @@
 
-![website image](../../../YUME/Desktop/blog-project/public/project-img.png)
+![website image](./public/project-img.png)
 
 This project is a company website demo with simple CMS to manage blog posts. 
 
