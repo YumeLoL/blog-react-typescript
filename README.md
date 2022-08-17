@@ -1,5 +1,5 @@
 <p align="center">
-<img src="C:/Users/YUME/Desktop/blog-project/public/project-img.png" width="400" height="210"/>
+<img src="public/project-img.png" width="400" height="210"/>
 
 
 This project is a company website demo with simple CMS to manage blog posts. 
