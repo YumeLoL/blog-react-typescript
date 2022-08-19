@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 
 // get all admin users
-export const getAllUser = async (req: Request, res: Response) => {
+export const getAllUser = async (_req: Request, res: Response) => {
   let users
 
   try {
