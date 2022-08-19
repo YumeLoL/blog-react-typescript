@@ -19,7 +19,6 @@ export const getAllUser = async (req: Request, res: Response) => {
 
 // sign up a new user
 export const signUp = async (req: Request, res: Response) => {
-  res.setHeader('X-Foo', 'bar') // (attention!) Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
   const { username, password } = req.body
 
   // check if the user already exists

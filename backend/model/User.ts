@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+interface IUser {
+    username: string,
+    password: string
+}
+
+const userSchema= new Schema<IUser>({
     username: {
         type: String,
         required: true,
