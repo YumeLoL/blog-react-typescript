@@ -7,7 +7,7 @@ dotenv.config();
 
 const app: Express = express()
 const port = process.env.PORT;
-app.use(express.json());
+app.use(express.json()); // make all body parts into json format
 
 app.use('/api/user',router)
 
