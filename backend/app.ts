@@ -1,18 +1,24 @@
-import express from 'express'
+import express, {Express} from 'express'
 import mongoose from 'mongoose'
+import router from './routes/userRoute'
+import dotenv from 'dotenv';
 
-const app = express()
+dotenv.config();
+
+const app: Express = express()
+const port = process.env.PORT;
+app.use(express.json());
+
+app.use('/api/user',router)
 
 mongoose
   .connect(
     'mongodb+srv://yumeblogApp:yumeblogApp@cluster0.u2dsqbb.mongodb.net/?retryWrites=true&w=majority'
   )
-  .then(() => app.listen(4000))
-  .then(() =>
-    console.log('connected to database and listening to localhost:4000')
-  )
-  .catch((err) => console.log(err))
-
-app.use('/api', (req, res) => {
-  res.send('hellow')
-})
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`[server]: Server is running at http://localhost:${port}`);
+    })
+  }).catch(err => {
+    console.log("failed to connect to database", err)
+  })
