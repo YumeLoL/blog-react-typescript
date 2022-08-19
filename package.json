@@ -17,6 +17,7 @@
     "aes-encryption": "^1.0.4",
     "axios": "^0.27.2",
     "crypto-js": "^4.1.1",
+    "ejs": "^3.1.8",
     "emailjs-com": "^3.2.0",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
