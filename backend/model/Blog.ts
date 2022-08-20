@@ -6,7 +6,7 @@ interface IBlog {
     title: string,
     description: string,
     image: string, 
-    user: string,
+    user: mongoose.SchemaDefinitionProperty<string>,
 }
 
 const blogSchema= new Schema<IBlog>({
@@ -23,7 +23,9 @@ const blogSchema= new Schema<IBlog>({
         required: true
     },
     user: {
-        type: String,
+        // one blog belongs to one user
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
         required: true
     }
 })

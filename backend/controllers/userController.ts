@@ -14,7 +14,6 @@ export const getAllUser = async (_req: Request, res: Response) => {
 
   if (!users) res.status(404).json({ message: 'No users found' })
   return res.status(200).json({ users })
-
 }
 
 // sign up a new user
@@ -32,7 +31,11 @@ export const signUp = async (req: Request, res: Response) => {
 
   // if no existing user, create a new
 
-  const user = new User({ username, password: bcrypt.hashSync(password, 10) })
+  const user = new User({
+    username,
+    password: bcrypt.hashSync(password, 10),
+    blogs: [],
+  })
   try {
     await user.save()
   } catch (error) {

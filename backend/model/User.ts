@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 
 interface IUser {
     username: string,
-    password: string
+    password: string,
+    blogs: string[]
 }
 
 const userSchema= new Schema<IUser>({
@@ -17,7 +18,15 @@ const userSchema= new Schema<IUser>({
         type: String,
         required: true,
         minlength: 6
-    }
+    },
+    blogs: [
+        // blogs is an array. one user has multiple blogs
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Blog',
+            required: true
+        }
+    ],
 })
 
 export default mongoose.model('User', userSchema)
