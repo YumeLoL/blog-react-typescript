@@ -1,12 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { ObjectId, SchemaDefinitionProperty, Types } from "mongoose";
+import { IUser } from "./User";
 
 const Schema = mongoose.Schema;
 
-interface IBlog {
+export interface IBlog {
     title: string,
     description: string,
     image: string, 
-    user: mongoose.SchemaDefinitionProperty<string>,
+    user:  SchemaDefinitionProperty<ObjectId>
 }
 
 const blogSchema= new Schema<IBlog>({
@@ -30,4 +31,4 @@ const blogSchema= new Schema<IBlog>({
     }
 })
 
-export default mongoose.model('Blog', blogSchema)
+export default mongoose.model<IBlog>('Blog', blogSchema)

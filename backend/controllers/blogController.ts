@@ -1,8 +1,10 @@
-import Blog from '../model/Blog'
+import Blog, { IBlog } from '../model/Blog'
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
+import User from '../model/User'
 
-export const getAllBlogs = async (_req:Request, res: Response) => {
+// get all blog posts
+export const getAllBlogs = async (_req: Request, res: Response) => {
   let blogs
 
   try {
@@ -17,77 +19,93 @@ export const getAllBlogs = async (_req:Request, res: Response) => {
   return res.status(200).json({ blogs })
 }
 
+// add a new blog
 export const addBlog = async (req: Request, res: Response) => {
-    const {title, description, image, user} = req.body
+  const { title, description, image, user } = req.body
 
-    const blog = new Blog({
-        title, description, image, user,
+  const blog = new Blog<IBlog>({
+    title,
+    description,
+    image,
+    user,
+  })
+  
+  // check user exists or not
+  let existingUser  
+  try {
+    existingUser = await User.findById(user)
+  } catch (error) {
+    console.log(error)
+  }
+  if (!existingUser) {
+    return res.status(404).json({ message: 'User not found by this Id' })
+  }
+
+  try {
+    const session = await mongoose.startSession()
+    session.startTransaction()
+    await blog.save({ session })
+    existingUser.blogs.push(blog)
+    await existingUser.save({ session })
+    await session.commitTransaction()
+  } catch (error) {
+    console.log(error)
+  }
+
+  return res.status(201).json({ blog })
+}
+
+export const updateBlog = async (req: Request, res: Response) => {
+  const { title, description, image, user } = req.body
+  const blogId = req.params.id
+
+  let blog
+  try {
+    blog = await Blog.findByIdAndUpdate(blogId, {
+      title,
+      description,
+      image,
+      user,
     })
-
-    try {
-        await blog.save()
-    } catch (error) {
-        console.log(error)
-    }
-
-    return res.status(201).json({ blog })
+  } catch (error) {
+    console.log(error)
   }
 
-  export const updateBlog = async (req: Request, res: Response) => {
-      const {title, description, image, user} = req.body
-      const blogId = req.params.id
+  if (!blog) res.status(404).json({ message: 'Unable to update blog' })
+  return res.status(200).json({ blog })
+}
 
-      let blog
-      try {
-          blog = await Blog.findByIdAndUpdate(blogId, {
-              title, description, image, user
-          })
-      } catch (error) {
-          console.log(error)
-      }
+export const getBlog = async (req: Request, res: Response) => {
+  const blogId = req.params.id
+  const _id = mongoose.Types.ObjectId.createFromHexString(blogId)
 
-      if(!blog) res.status(404).json({message: 'Unable to update blog'})
-      return res.status(200).json({blog})
+  let blog
+  try {
+    blog = await Blog.findById({ _id })
+  } catch (error) {
+    console.log(error)
   }
 
+  if (!blog) res.status(404).json({ message: 'No blog found' })
+  return res.status(200).json({ blog })
+}
 
-  export const getBlog = async (req:Request, res:Response) => {
-    const blogId = req.params.id
-    const _id = mongoose.Types.ObjectId.createFromHexString(blogId);
+export const deleteBlog = async (req: Request, res: Response) => {
+  const blogId = req.params.id
+  const _id = mongoose.Types.ObjectId.createFromHexString(blogId)
 
+  if (mongoose.Types.ObjectId.isValid(_id)) {
     let blog
     try {
-        blog = await Blog.findById({_id})
+      blog = await Blog.findByIdAndRemove({ _id })
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-
-    if(!blog) res.status(404).json({message: 'No blog found'})
-    return res.status(200).json({blog})
-
-  }
-
-
-  export const deleteBlog = async(req:Request, res: Response) => {
-    const blogId = req.params.id
-    const _id = mongoose.Types.ObjectId.createFromHexString(blogId);
-
-    if(mongoose.Types.ObjectId.isValid(_id)) {
-      
-      let blog  
-      try {
-        blog = await Blog.findByIdAndRemove({_id})
-      } catch (error) {
-        console.log(error)
-      }
-      if(!blog){ return res.status(404).json({message: 'Unable to delete blog'})}
-      return res.status(200).json({blog, message: 'Delete blog successfully'})
-    
-    } else{
-      res.status(404).json({message: 'blogId issues'})
+    if (!blog) {
+      return res.status(404).json({ message: 'Unable to delete blog' })
     }
-
-
+    return res.status(200).json({ blog, message: 'Delete blog successfully' })
+  } else {
+    res.status(404).json({ message: 'blogId issues' })
   }
-
-
+}
