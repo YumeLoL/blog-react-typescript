@@ -16,3 +16,9 @@ For security, salt value is at least to be 10.
 <strong>Fix Method: </strong>
 >   const blogId = req.params.id
     const _id = mongoose.Types.ObjectId.createFromHexString(blogId);
+
+
+#### Issues Need To Be Fixed ###
+<strong>Type Issue: interface IBlog</strong>
+<code> await blog?.user.save()</code>
+<code> await blog?.user.save()</code>

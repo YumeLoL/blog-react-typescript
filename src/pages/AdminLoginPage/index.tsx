@@ -1,22 +1,23 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AES } from 'crypto-js'
+// import bcrypt from 'bcrypt'
 import Button from '../../ui/atoms/Button'
 import { Input } from '../../ui/atoms/Input'
-import { LoginPost } from '../../libs/http/httpService'
+
 import {save} from 'react-cookies'
 import './index.scss'
 import { UserContext } from '../../contexts/UserContext'
+import { Login } from '../../libs/http/httpService'
 
 
 const AdminLoginPage = () => {
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const {setIsUserLogged} = useContext(UserContext)
   const navigate = useNavigate();
 
   const onChangeUsername = (value: string): void => {
-    setEmail(value)
+    setUsername(value)
   }
 
   const onChangePassword = (value: string): void => {
@@ -27,9 +28,7 @@ const AdminLoginPage = () => {
   // email: manager@admin.com  password: 111111
   const onLogin = async () => {
     
-    const {data} = await LoginPost({ email: email,
-      password: AES.encrypt(password, 'cms').toString(),
-      role: 'manager',})
+    const {data} = await Login({ username: username, password:password})
 
     if(data.data.token) {
       // to save token into cookies 
@@ -48,7 +47,7 @@ const AdminLoginPage = () => {
       <div className="login__items">
         <div className="login__items__title">Blog Content Management</div>
         <Input
-          value={email}
+          value={username}
           placeholder="email"
           onChange={onChangeUsername}
           className="login__items__input"

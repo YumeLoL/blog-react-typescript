@@ -2,9 +2,8 @@ import axiosInstance from "./auth"
 
 interface Login {
     data: { token: string }
-    email: string
+    username: string
     password: string
-    role: string
   }
 
 interface Image {
@@ -23,7 +22,7 @@ interface Posts {
 }
 
 
-export const LoginPost = (data = {}): Promise<{ data: Login }> =>
+export const Login = (data= {}): Promise<{ data: Login }> =>
   axiosInstance.post(`/login`, data)
 
 // mock 

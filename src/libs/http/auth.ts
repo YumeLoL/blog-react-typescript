@@ -6,7 +6,7 @@ import { load } from 'react-cookies'
 
 
 const axiosInstance = axios.create({
-  baseURL: env('API_URL'),
+  baseURL: 'http://localhost:5000/api/user',
   timeout: 5000,
 })
 
