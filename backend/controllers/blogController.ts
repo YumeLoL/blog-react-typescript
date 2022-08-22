@@ -1,6 +1,6 @@
-import Blog, { IBlog } from '../model/Blog'
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
+import Blog, { IBlog } from '../model/Blog'
 import User from '../model/User'
 
 // get all blog posts
@@ -29,9 +29,9 @@ export const addBlog = async (req: Request, res: Response) => {
     image,
     user,
   })
-  
+
   // check user exists or not
-  let existingUser  
+  let existingUser
   try {
     existingUser = await User.findById(user)
   } catch (error) {
@@ -45,16 +45,18 @@ export const addBlog = async (req: Request, res: Response) => {
     const session = await mongoose.startSession()
     session.startTransaction()
     await blog.save({ session })
-    existingUser.blogs.push(blog)
+    existingUser.blogs?.push(blog)
     await existingUser.save({ session })
     await session.commitTransaction()
   } catch (error) {
     console.log(error)
+    return res.status(500).json({ message: error })
   }
 
   return res.status(201).json({ blog })
 }
 
+// update a blog
 export const updateBlog = async (req: Request, res: Response) => {
   const { title, description, image, user } = req.body
   const blogId = req.params.id
@@ -71,10 +73,13 @@ export const updateBlog = async (req: Request, res: Response) => {
     console.log(error)
   }
 
-  if (!blog) res.status(404).json({ message: 'Unable to update blog' })
+  if (!blog) {
+    return res.status(404).json({ message: 'Unable to update blog' })
+  }
   return res.status(200).json({ blog })
 }
 
+// get a blog detail by id
 export const getBlog = async (req: Request, res: Response) => {
   const blogId = req.params.id
   const _id = mongoose.Types.ObjectId.createFromHexString(blogId)
@@ -86,26 +91,29 @@ export const getBlog = async (req: Request, res: Response) => {
     console.log(error)
   }
 
-  if (!blog) res.status(404).json({ message: 'No blog found' })
+  if (!blog) {
+    return res.status(500).json({ message: 'No blog found' })
+  }
   return res.status(200).json({ blog })
 }
 
+// delete a blog by id
 export const deleteBlog = async (req: Request, res: Response) => {
   const blogId = req.params.id
   const _id = mongoose.Types.ObjectId.createFromHexString(blogId)
 
-  if (mongoose.Types.ObjectId.isValid(_id)) {
-    let blog
-    try {
-      blog = await Blog.findByIdAndRemove({ _id })
-    } catch (error) {
-      console.log(error)
-    }
-    if (!blog) {
-      return res.status(404).json({ message: 'Unable to delete blog' })
-    }
-    return res.status(200).json({ blog, message: 'Delete blog successfully' })
-  } else {
-    res.status(404).json({ message: 'blogId issues' })
+  let blog
+  try {
+    blog = await Blog.findByIdAndRemove({ _id }).populate('user')
+
+    await blog?.user.blogs.pull(blog)
+    await blog?.user.save()
+  } catch (error) {
+    console.log(error)
   }
+
+  if (!blog) {
+    return res.status(404).json({ message: 'No blog found' })
+  }
+  return res.status(200).json({ blog })
 }

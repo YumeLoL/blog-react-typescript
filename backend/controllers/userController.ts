@@ -1,4 +1,4 @@
-import User from '../model/User'
+import User, { IUser } from '../model/User'
 import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 
@@ -12,7 +12,7 @@ export const getAllUser = async (_req: Request, res: Response) => {
     console.log(error)
   }
 
-  if (!users) res.status(404).json({ message: 'No users found' })
+  if (!users){ return res.status(404).json({ message: 'No users found' })}
   return res.status(200).json({ users })
 }
 
@@ -27,15 +27,10 @@ export const signUp = async (req: Request, res: Response) => {
   } catch (error) {
     console.log(error)
   }
-  if (existingUser) res.status(400).json({ message: 'User already exists' })
+  if (existingUser){return res.status(400).json({ message: 'User already exists' })}
 
   // if no existing user, create a new
-
-  const user = new User({
-    username,
-    password: bcrypt.hashSync(password, 10),
-    blogs: [],
-  })
+  const user = new User({username, password: bcrypt.hashSync(password, 10), blogs:[]})
   try {
     await user.save()
   } catch (error) {
