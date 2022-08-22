@@ -1,19 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UserId } from '../../contexts/UserContext'
+import { Login } from '../../libs/http/httpService'
 // import bcrypt from 'bcrypt'
 import Button from '../../ui/atoms/Button'
 import { Input } from '../../ui/atoms/Input'
-
-import {save} from 'react-cookies'
 import './index.scss'
-import { UserContext } from '../../contexts/UserContext'
-import { Login } from '../../libs/http/httpService'
+
 
 
 const AdminLoginPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const {setIsUserLogged} = useContext(UserContext)
+  const {setUserId} = useContext(UserId)
   const navigate = useNavigate();
 
   const onChangeUsername = (value: string): void => {
@@ -25,21 +24,20 @@ const AdminLoginPage = () => {
   }
 
   // to handle login
-  // email: manager@admin.com  password: 111111
+  // email: admin@admin.com  password: 111111
   const onLogin = async () => {
     
-    const {data} = await Login({ username: username, password:password})
+    const res = await Login({ username: username, password:password})
+    console.log(res.data)
 
-    if(data.data.token) {
-      // to save token into cookies 
-      // set IsUserLogged to be true
-      // navigate to About Page
-      save('token', data.data.token, {path: '/'})
-      setIsUserLogged(true)
-      navigate('/about')
-    }
-
-     
+    // if(data.data.token) {
+    //   // to save token into cookies 
+    //   // set IsUserLogged to be true
+    //   // navigate to About Page
+    //   save('token', data.data.token, {path: '/'})
+    // }
+    setUserId(res.data.user._id)
+    navigate('/about')
   }
 
   return (

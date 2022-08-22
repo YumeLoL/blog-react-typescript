@@ -1,30 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
 import RichTextEditor from 'react-rte'
 import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 import Hero from '../../ui/molecules/Hero'
 import Layout from '../../ui/organisms/layout'
 import { Input } from '../../ui/atoms/Input'
-import { UserContext } from '../../contexts/UserContext'
+import { UserId } from '../../contexts/UserContext'
 import Button from '../../ui/atoms/Button'
-import { PostImage } from '../../libs/http/httpService'
 import './index.scss'
 
 const EditPostPage = () => {
   const navigate = useNavigate()
-  const [editorValue, setEditorValue] = useState(
-    RichTextEditor.createEmptyValue()
-  )
+  const {userId} = useContext(UserId)
+  const [content, setContent] = useState(RichTextEditor.createEmptyValue())
   const { id } = useParams() // to get id
   const [title, setTitle] = useState('')
-  const [coverUrl, setCoverUrl] = useState('')
-  const [isBookEssay, setIsBookEssay] = useState(false)
-  const { isUserLogged } = useContext(UserContext)
+  const [description, setDescription] = useState('')
+  const [coverUrl, setCoverUrl] = useState('') // !!! need to be figure out !!!
   const [isEdit, setIsEdit] = useState(false)
+
+ 
 
   // if admin does not login, then navigate to admin logoin page
   useEffect(() => {
-    if (!isUserLogged) navigate('./admin')
-  }, [isUserLogged])
+    if (!userId) navigate('./admin')
+  }, [userId])
 
   // checking if this is add new post page or edit post page
   useEffect(() => {
@@ -32,37 +32,26 @@ const EditPostPage = () => {
     else setIsEdit(true)
   }, [id])
 
-  // isBookEssay checkbox
-  const onChangeType = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsBookEssay(e.target.checked)
-  }
-
   // adding cover image
   const onAddCover = async (e) => {
-    console.log(e.target.file[0])
-    const image = e.target.file[0]
+    console.log(e)
+    const coverUrl = e.target.file[0]
 
     const fd = new FormData()
-    fd.append('file', image, image.name)
-
-    // mock http request
-    const photoUrl = await PostImage(fd)
-    setCoverUrl(photoUrl.data.image)
+    fd.append('file', coverUrl, coverUrl.name)
+    console.log('fd', fd)
   }
 
   // adding a new post (mock http request)
   const addPost = async () => {
-    // const text = editorValue.toString('html')
-    // const post = {
-    //   coverUrl,
-    //   title,
-    //   text,
-    //   isBookEssay,
-    // }
-
-    // await AddPost(post).then(() => alert('add post successfully'))
-    // navigate('./posts')
-    alert('add post successfully')
+    const res = await axios.post('http://localhost:5000/api/blog/add', {
+      title,
+      description,
+      content: content.toString('html'),
+      coverUrl:"xx.jpg",
+      user: userId,
+    })
+    console.log(res)
   }
 
   // editing the existing post (mock http request)
@@ -78,7 +67,9 @@ const EditPostPage = () => {
       />
 
       <div className="add-post">
-        <h1 className="add-post__title">{isEdit ? 'Edit The Post' : 'Add A New Post'}</h1>
+        <h1 className="add-post__title">
+          {isEdit ? 'Edit The Post' : 'Add A New Post'}
+        </h1>
         <div className="add-post__add-cover">
           <p className="photo">Add Cover</p>
           <input type="file" className="upload-btn" onChange={onAddCover} />
@@ -91,19 +82,20 @@ const EditPostPage = () => {
           onChange={setTitle}
         />
 
+        <textarea
+          className="textarea"
+          placeholder="Descripting"
+          rows={4}
+          cols={50}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
         <RichTextEditor
           className="add-post__editor"
-          value={editorValue}
-          onChange={setEditorValue}
+          value={content}
+          onChange={setContent}
         />
-        <div className="add-post__type">
-          <input
-            type="checkbox"
-            checked={isBookEssay}
-            onChange={onChangeType}
-          />
-          <p>Is this a book essay?</p>
-        </div>
 
         <Button
           text={isEdit ? 'Edit Post' : 'Add Post'}

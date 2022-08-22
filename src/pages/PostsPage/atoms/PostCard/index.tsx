@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserContext } from '../../../../contexts/UserContext'
+import { UserId } from '../../../../contexts/UserContext'
 import Button from '../../../../ui/atoms/Button'
 import './index.scss'
 
 interface Props {
   className?: string
   data: {
-    id: number
+    _id: number
     coverUrl: string
     title: string
     createdAt: string
@@ -16,32 +16,32 @@ interface Props {
 }
 
 const PostCard: React.FC<Props> = ({ data }) => {
-  const { isUserLogged } = useContext(UserContext)
+  const {userId} = useContext(UserId)
   const navigate = useNavigate()
-  const { id, coverUrl, title, createdAt, description } = data
+  const { _id, coverUrl, title, createdAt, description } = data
 
   // if admin login, navigate to EditPost page after onClick
-  const handleClick = (id: number) => {
-    if (!isUserLogged) navigate(`/posts/${id}`)
+  const handleClick = (_id: number) => {
+    if (!userId) navigate(`/posts/${_id}`)
     else {
-      navigate(`/editpostpage/${id}`)
+      navigate(`/editpostpage/${_id}`)
     }
   }
 
-  const handleDelete = (id: number) => {
-    alert(`Delete ${id}`)
+  const handleDelete = (_id: number) => {
+    alert(`Delete ${_id}`)
   }
 
   return (
     <div className="card">
       <img
         src={coverUrl}
-        alt="blog post image"
+        alt={coverUrl}
         className="card__img-container"
       />
 
       <div className="card__detail">
-        <Link className="card__detail__link-btn" to={`${id}`}>
+        <Link className="card__detail__link-btn" to={`${_id}`}>
           {title.toUpperCase()}
         </Link>
 
@@ -49,13 +49,13 @@ const PostCard: React.FC<Props> = ({ data }) => {
         <p>{description}</p>
       <div className="button-container">
         <Button
-          className={isUserLogged? `btn-text`:"btn-square"}
-          onClick={() => handleClick(id)}
-          text={isUserLogged ? '>> To Edit' : 'Read More'}
+          className={userId? `btn-text`:"btn-square"}
+          onClick={() => handleClick(_id)}
+          text={userId ? '>> To Edit' : 'Read More'}
         />
 
-        {isUserLogged && <Button className='btn-text'
-          onClick={() => handleDelete(id)}
+        {userId && <Button className='btn-text'
+          onClick={() => handleDelete(_id)}
           text='>> To Delete'/>
         }
 

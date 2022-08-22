@@ -1,30 +1,31 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { createContext, useState } from 'react'
 
-export interface UserContextType {
-  isUserLogged: boolean
-  setIsUserLogged: React.Dispatch<React.SetStateAction<boolean>>
+export interface UserIdType {
+  userId: string
+  setUserId: React.Dispatch<React.SetStateAction<string>>
 }
 
-const defaultValue = {
-  isUserLogged: false,
-  setIsUserLogged: () => {},
+const userIdDefault = {
+  userId: '',
+  setUserId: () => {},
 }
 
-export const UserContext = createContext<UserContextType>(defaultValue)
+export const UserId = createContext<UserIdType>(userIdDefault)
 
-export const UserProvider = ({
+export const UserIdProvider = ({
   children,
 }: {
   children: React.ReactElement
 }): React.ReactElement => {
-  const [isUserLogged, setIsUserLogged] = useState(
-    defaultValue.isUserLogged
+  const [userId, setUserId] = useState(
+    userIdDefault.userId
   )
 
   return (
-    <UserContext.Provider value={{ isUserLogged, setIsUserLogged }}>
+    <UserId.Provider value={{ userId, setUserId }}>
       {children}
-    </UserContext.Provider>
+    </UserId.Provider>
   )
 }
+

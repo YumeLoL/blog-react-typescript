@@ -21,13 +21,15 @@ export const getAllBlogs = async (_req: Request, res: Response) => {
 
 // add a new blog
 export const addBlog = async (req: Request, res: Response) => {
-  const { title, description, image, user } = req.body
+  const { title, description, content, coverUrl, user } = req.body
 
   const blog = new Blog<IBlog>({
     title,
     description,
-    image,
+    content,
+    coverUrl,
     user,
+    createdAt: new Date(),
   })
 
   // check user exists or not
@@ -58,7 +60,7 @@ export const addBlog = async (req: Request, res: Response) => {
 
 // update a blog
 export const updateBlog = async (req: Request, res: Response) => {
-  const { title, description, image, user } = req.body
+  const { title, description, content, coverUrl, user } = req.body
   const blogId = req.params.id
 
   let blog
@@ -66,8 +68,10 @@ export const updateBlog = async (req: Request, res: Response) => {
     blog = await Blog.findByIdAndUpdate(blogId, {
       title,
       description,
-      image,
+      content,
+      coverUrl,
       user,
+      updatedAt: new Date(),
     })
   } catch (error) {
     console.log(error)
@@ -122,15 +126,15 @@ export const deleteBlog = async (req: Request, res: Response) => {
 export const getByUserId = async (req: Request, res: Response) => {
   const userId = req.params.id
 
-  let userBlogs 
+  let userBlogs
   try {
     userBlogs = await User.findById(userId).populate('blogs')
   } catch (error) {
     console.log(error)
   }
 
-  if(!userBlogs) {
+  if (!userBlogs) {
     return res.status(404).json({ message: 'No Blog Found' })
   }
-  return res.status(200).json({blogs:userBlogs})
+  return res.status(200).json({ blogs: userBlogs })
 }

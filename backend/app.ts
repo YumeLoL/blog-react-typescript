@@ -3,13 +3,14 @@ import mongoose from 'mongoose'
 import userRoute from './routes/userRoute'
 import blogRoute from './routes/blogRoute';
 import dotenv from 'dotenv';
+import cors from 'cors'
 
 dotenv.config();
 
 const app: Express = express()
 const port = process.env.PORT;
 app.use(express.json()); // make all body parts into json format
-
+app.use(cors())
 app.use('/api/user', userRoute)
 app.use('/api/blog', blogRoute)
 

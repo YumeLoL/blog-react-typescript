@@ -1,7 +1,7 @@
+import axios from "axios"
 import axiosInstance from "./auth"
 
 interface Login {
-    data: { token: string }
     username: string
     password: string
   }
@@ -10,27 +10,23 @@ interface Image {
     image: string
 }
 
-interface Posts {
-  id: number;
+export interface Posts {
+  title: string;
+  description: string;
+  content: string;
+  coverUrl: string;
   createdAt?: Date;
   updatedAt?: Date;
-  title: string;
-  text: string;
-  coverUrl: string;
-  isBookEssay: boolean;
-  likeNumer: number;
 }
 
 
-export const Login = (data= {}): Promise<{ data: Login }> =>
-  axiosInstance.post(`/login`, data)
+export const Login = (data:Login) =>
+  axios.post(`http://localhost:5000/api/user/login`, data)
 
 // mock 
 export const PostImage = (data = {}): Promise<{ data: Image }> =>
   axiosInstance.post(`/`, data)
 
-// mock 
-export const AddPost = (data = {}): Promise<{ data: Posts }> =>
-  axiosInstance.post(`/`, data)
+
 
 
